@@ -30,3 +30,29 @@ print(customer)
 del customer["email"]                   # delete a field
 print(customer)
 print()
+
+
+# EXERCISE 3: Safe lookup
+print("EXERCISE 3")
+email = customer.get("email", "no email on file")
+print(f".get() result: {email}")
+
+try:
+    print(customer["email"])
+except KeyError as error:
+    print(f"Bracket lookup raised KeyError: {error}")
+print()
+
+
+# EXERCISE 4: Iterate
+print("EXERCISE 4")
+for key, value in customer.items():
+    print(f"{key}: {value}")
+
+print("Without .items():")
+for key in customer:
+    print(key)
+# Looping over a dict by itself only gives the keys.
+# .items() gives (key, value) pairs, so both can be printed without
+# looking each value up again with customer[key].
+print()
